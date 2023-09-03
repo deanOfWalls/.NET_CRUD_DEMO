@@ -1,7 +1,6 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Models
+namespace Models  // Corrected namespace
 {
     public class PersonModel
     {

@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Models;
 
-namespace DbContext  // Custom namespace
+namespace Data.DbContext  // Corrected namespace
 {
     public class PersonContext : Microsoft.EntityFrameworkCore.DbContext
     {

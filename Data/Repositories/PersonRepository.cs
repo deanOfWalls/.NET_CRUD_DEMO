@@ -1,11 +1,11 @@
-using Microsoft.EntityFrameworkCore;
-using System;
+using System;  // Added for Exception
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Models;
-using DbContext;
+using Data.DbContext;
+using Microsoft.EntityFrameworkCore;  // Added for ToListAsync and FindAsync
 
-namespace Repositories
+namespace Data.Repositories
 {
     public class PersonRepository : IPersonRepository
     {
@@ -84,9 +84,5 @@ namespace Repositories
                 // Log the exception (ex) here
             }
         }
-    }
-
-    public interface IPersonRepository
-    {
     }
 }

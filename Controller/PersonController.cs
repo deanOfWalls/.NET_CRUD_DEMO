@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using Repositories;  // Correct namespace for IPersonRepository
-using Models;  // Correct namespace for PersonModel
+using Data.Repositories;
+using Models;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Threading.Tasks;  // Added for Task
 
-namespace Controller  // Custom namespace
+namespace Controller
 {
     [ApiController]
     [Route("api/Person")]
@@ -12,9 +12,9 @@ namespace Controller  // Custom namespace
     {
         private readonly IPersonRepository _repository;
 
-        public PersonController(IPersonRepository personRepository)
+        public PersonController(IPersonRepository personRepository)  // Fixed parameter name
         {
-            _repository = personRepository;
+            _repository = personRepository;  // Fixed field assignment
         }
 
         [HttpGet]
