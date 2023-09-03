@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Dean\\Desktop\\.NET_CRUD_DEMO\\wwwroot\\Dockerfile",
+      "PackagePath": "staticwebassets"
+    },
+    {
       "Id": "C:\\Users\\Dean\\Desktop\\.NET_CRUD_DEMO\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
