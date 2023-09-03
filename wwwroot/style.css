@@ -1,0 +1,136 @@
+/* custom-style.css */
+
+/* General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffedd3;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 18px 0;
+    background-color: #d14545;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header h1 {
+    font-size: 18px;
+    margin: 0;
+    color: white;
+}
+
+/* Form Container Styles */
+.form-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 500px;
+    margin: 70px auto 20px;
+    position: relative;
+}
+
+.form-container textarea {
+    width: 100%;
+    height:fit-content;
+    resize: vertical;
+    margin-top: 10px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 90%; /* Adjusted width */
+    margin-bottom: 10px;
+}
+
+.form-container button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #d14545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container input:focus,
+.form-container button:focus {
+    outline: none;
+}
+
+/* Loading Section Styles */
+#loadingSection {
+    background-color: #d14545;
+    height: 100vh;
+    color: #ffffff;
+}
+
+#loadingSection p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Logo Animation Styles */
+.logo.is-animation {
+    margin-top: 0.6em;
+}
+
+.logo.is-animation span {
+    display: inline-block;
+    animation: wave-text 1s ease-in-out infinite;
+}
+
+@keyframes wave-text {
+    0% {
+      transform: translateY(0em);
+    }
+    60% {
+      transform: translateY(-0.6em);
+    }
+    100% {
+      transform: translateY(0em);
+    }
+}
+
+/* Stats Section Styles */
+#statsSection {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-value {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* Footer styles */
+footer {
+    padding: 20px;
+    background-color: #292929;
+    text-align: center;
+    color: white;
+}

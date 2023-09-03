@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dean's Basic .NET CRUD Application</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="custom-style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Dean's Basic .NET CRUD Application</h1>
+    </div>
+
+    <div class="form-container">
+        <form id="person-form">
+            <!-- <label for="person-id">ID:</label> -->
+            <input type="text" id="person-id" name="id" autocomplete="off" placeholder="ID"><br>
+
+            <!-- <label for="first-name">First Name:</label> -->
+            <input type="text" id="first-name" name="firstName"autocomplete="off" placeholder="First Name"><br>
+
+            <!-- <label for="last-name">Last Name:</label> -->
+            <input type="text" id="last-name" name="lastName"autocomplete="off" placeholder ="Last Name"><br>
+
+            <label for="birth-date" style="display: inline-block;">Birth Date:</label>
+            <input type="date" id="birth-date" name="birthDate" style="display: inline-block;"><br>
+            
+
+            <button onclick="create(event)">Create</button>
+            <button onclick="readAll(event)">Read All</button>
+            <button onclick="readById(event)">Read by ID</button>
+            <button onclick="update(event)">Update</button>
+            <button onclick="deleteThing(event)">Delete</button>
+        </form>
+        <div class="json-output">
+            <h3>JSON Output:</h3>
+            <textarea id="json-display" rows="10" cols="50"></textarea>
+        </div>
+    </div>
+
+    <script>
+        // Function to update the JSON data in the textarea
+        function updateJsonDisplay(jsonData) {
+            const jsonDisplayElement = document.getElementById("json-display");
+            jsonDisplayElement.value = JSON.stringify(jsonData, null, 2);
+        }
+
+        function create(event) {
+            event.preventDefault();
+
+            const personIdValue = document.getElementById("person-id").value;
+            const firstNameValue = document.getElementById("first-name").value;
+            const lastNameValue = document.getElementById("last-name").value;
+            const birthDateValue = document.getElementById("birth-date").value;
+
+            const personData = JSON.stringify({
+                id: personIdValue,
+                firstName: firstNameValue,
+                lastName: lastNameValue,
+                birthDate: birthDateValue,
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/api/Person",
+                data: personData,
+                contentType: "application/json",
+                success: function (response) {
+                    updateJsonDisplay(response);
+                },
+                error: function (error) {
+                    updateJsonDisplay("An error occurred during the create request.");
+                }
+            });
+        }
+
+        async function readAll(event) {
+            event.preventDefault();
+
+            try {
+                const response = await $.ajax({
+                    type: "GET",
+                    url: "http://localhost:8080/api/Person",
+                });
+
+                updateJsonDisplay(response);
+            } catch (error) {
+                updateJsonDisplay("An error occurred during the readAll request.");
+            }
+        }
+
+        async function readById(event) {
+            event.preventDefault();
+
+            const personIdValue = document.getElementById("person-id").value;
+
+            try {
+                const response = await $.ajax({
+                    type: "GET",
+                    url: `http://localhost:8080/api/Person/${personIdValue}`,
+                });
+
+                updateJsonDisplay(response);
+            } catch (error) {
+                updateJsonDisplay("An error occurred during the readById request.");
+            }
+        }
+
+        async function update(event) {
+            event.preventDefault();
+
+            const personIdValue = document.getElementById("person-id").value;
+            const firstNameValue = document.getElementById("first-name").value;
+            const lastNameValue = document.getElementById("last-name").value;
+            const birthDateValue = document.getElementById("birth-date").value;
+
+            const personData = JSON.stringify({
+                id: personIdValue,
+                firstName: firstNameValue,
+                lastName: lastNameValue,
+                birthDate: birthDateValue,
+            });
+
+            try {
+                const response = await $.ajax({
+                    type: "PUT",
+                    url: `http://localhost:8080/api/Person/${personIdValue}`,
+                    data: personData,
+                    contentType: "application/json",
+                });
+
+                updateJsonDisplay(response);
+            } catch (error) {
+                updateJsonDisplay("An error occurred during the update request.");
+            }
+        }
+
+        async function deleteThing(event) {
+            event.preventDefault();
+
+            const personIdValue = document.getElementById("person-id").value;
+
+            try {
+                const response = await $.ajax({
+                    type: "DELETE",
+                    url: `http://localhost:8080/api/Person/${personIdValue}`,
+                });
+
+                updateJsonDisplay(response);
+            } catch (error) {
+                updateJsonDisplay("An error occurred during the delete request.");
+            }
+        }
+    </script>
+
+</body>
+</html>

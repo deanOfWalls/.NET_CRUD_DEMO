@@ -5,7 +5,7 @@ using Data.Repositories;
 using Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Linq;  // Added for .Any()
+using System.Linq;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +16,7 @@ builder.Services.AddDbContext<PersonContext>(options =>
         new MySqlServerVersion(new Version(8, 0, 21))));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddRazorPages();
 
 // Register your custom services here
 builder.Services.AddScoped<IPersonRepository, PersonRepository>();
@@ -44,11 +45,24 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// Uncomment the line below if you want to use HTTPS redirection
+// app.UseHttpsRedirection();
 
-app.UseAuthorization();
+/*the following is to debug 404 issue i'm having*/
+app.Use(async (context, next) =>
+{
+    Console.WriteLine($"Request for {context.Request.Path} received ({context.Request.Method})");
+    await next.Invoke();
+    Console.WriteLine($"Response for {context.Request.Path} sent ({context.Response.StatusCode})");
+});
 
+
+
+app.UseDefaultFiles();  // Serve default files
+app.UseStaticFiles();   // Serve static files
 app.MapControllers();
+app.UseAuthorization();
+app.MapRazorPages();
 
 app.Run();
 

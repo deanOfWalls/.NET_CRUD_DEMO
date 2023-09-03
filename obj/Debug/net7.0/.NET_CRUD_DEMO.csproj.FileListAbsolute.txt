@@ -76,3 +76,4 @@ C:\Users\Dean\Desktop\.NET_CRUD_DEMO\obj\Debug\net7.0\refint\.NET_CRUD_DEMO.dll
 C:\Users\Dean\Desktop\.NET_CRUD_DEMO\obj\Debug\net7.0\.NET_CRUD_DEMO.pdb
 C:\Users\Dean\Desktop\.NET_CRUD_DEMO\obj\Debug\net7.0\.NET_CRUD_DEMO.genruntimeconfig.cache
 C:\Users\Dean\Desktop\.NET_CRUD_DEMO\obj\Debug\net7.0\ref\.NET_CRUD_DEMO.dll
+C:\Users\Dean\Desktop\.NET_CRUD_DEMO\bin\Debug\net7.0\.NET_CRUD_DEMO.staticwebassets.runtime.json

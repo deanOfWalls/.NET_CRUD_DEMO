@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Dean\\Desktop\\.NET_CRUD_DEMO\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Dean\\Desktop\\.NET_CRUD_DEMO\\wwwroot\\style.css",
+      "PackagePath": "staticwebassets\\style.css"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild..NET_CRUD_DEMO.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build..NET_CRUD_DEMO.props",
+      "PackagePath": "build\\.NET_CRUD_DEMO.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting..NET_CRUD_DEMO.props",
+      "PackagePath": "buildMultiTargeting\\.NET_CRUD_DEMO.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive..NET_CRUD_DEMO.props",
+      "PackagePath": "buildTransitive\\.NET_CRUD_DEMO.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
